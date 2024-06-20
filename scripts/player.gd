@@ -40,7 +40,10 @@ func die():
 func _on_area_entered(area):
 	if area.is_in_group("coins"):
 		area.picked()
-		pick.emit()
+		pick.emit("coin")
+	if area.is_in_group("powerup"):
+		area.picked()
+		pick.emit("powerup")
 	if area.is_in_group("danger"):
 		hurt.emit()
 		die()
